@@ -1,0 +1,131 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video , span{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'Myriad Set Pro', 'Lucida Grande', 'Hiragino Sans GB', 'Helvetica', 'Arial', 'sans-serif';
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+article, section {
+  display: block;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+input, button, select, textarea {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+html, body,.fullpage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translate3d(0,0,0)
+  overflow: hidden
+}
+.fullpage_nav{
+  position fixed
+  right 0
+  top: 50%
+  transform: translate(0, -50%)
+  overflow: hidden
+  .fullpage_nav_item{
+    margin: 6px
+    width: 6px
+    height 6px
+    border-radius: 50%
+    background-color: #999999
+    &.nav_active{
+      background-color: #ff4400
+    }
+  }
+}
+
+.full_pages_down{
+  font-family: 'iconfont'
+  font-size: 28px
+  text-align center
+  position fixed
+  width 40px
+  height 40px
+  line-height 40px
+  color #ff4400
+  left: 50%
+  bottom: 0
+  margin-left: -10px
+  animation bounce 1s infinite
+}
+.full_contain{
+  width 100%
+  overflow: hidden
+  transition all 0.5s 0.2s
+  perspective: 1000px;
+  backface-visibility: hidden;
+  .full_pages{
+    position relative
+    width 100% 
+    box-sizing: border-box
+    .full_pages_again{
+      width 100px
+      height 40px
+      line-height 40px
+      text-align center
+      position absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)  
+      color: #ffffff
+      background-color: #ff4400
+      border-radius: 6px
+    }
+  }
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 975228 */
+  src: url('//at.alicdn.com/t/font_975228_05x0spxgzq4c.eot');
+  src: url('//at.alicdn.com/t/font_975228_05x0spxgzq4c.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_975228_05x0spxgzq4c.woff') format('woff'),
+  url('//at.alicdn.com/t/font_975228_05x0spxgzq4c.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_975228_05x0spxgzq4c.svg#iconfont') format('svg');
+}
+
+@-webkit-keyframes bounce{
+  from, 20%, 53%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0,-4px,0);
+    transform: translate3d(0,-4px,0);
+  }
+}
