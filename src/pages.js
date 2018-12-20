@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 export default class Pages extends Component {
   constructor(props) {
     super(props);
+    this.$pages = React.createRef();
   }
   static propTypes = {
     /**
@@ -41,7 +42,7 @@ export default class Pages extends Component {
   }
   __init() {
     const pages = this.props.pages;
-    this.refs.$pages.style.height = 100 / pages + '%';
+    this.$pages.current.style.height = 100 / pages + '%';
   }
   __again() {
     this.props.againFunc();
@@ -55,7 +56,7 @@ export default class Pages extends Component {
     const againCof = this.props.againCof;
     const pages = this.props.pages;
     return (
-      <div className={'full_pages full_pages_' + idx } ref="$pages" style={style}>
+      <div className={'full_pages full_pages_' + idx } ref={this.$pages} style={style}>
         {this.props.children}
         {againCof.isShow && (pages === idx) ? <div className="full_pages_again" onClick={this.__again.bind(this)}>{againCof.text}</div> : null}
       </div>

@@ -14,6 +14,7 @@ export default class PageContainer extends Component {
     this.isMove = false;
     this.isChange = false;
     this.pageMoving = false;
+    this.$full = React.createRef();
   }
   static propTypes = {
     /**
@@ -47,7 +48,7 @@ export default class PageContainer extends Component {
   }
   init() {
     const pages = this.state.children.length;
-    const $full = this.refs.$full;
+    const $full = this.$full.current;
     $full.style.height = 100 * pages + '%';
     this.bindTouchEvent($full);
   }
@@ -73,7 +74,7 @@ export default class PageContainer extends Component {
     this.distanceY = this.moveY - this.startY;
   }
   touchendEvent = () => {
-    const $full = this.refs.$full;
+    const $full = this.$full.current;
     const pages = this.state.children.length;
     if (Math.abs(this.distanceY) > 10 && this.isMove && !this.pageMoving) {
       if (this.distanceY > 0) {
@@ -164,7 +165,7 @@ export default class PageContainer extends Component {
     const style = this.props.style;
     return (
       <div className="fullpage" id="fullpage">
-        <div className="full_contain" ref="$full" style={style}>
+        <div className="full_contain" ref={this.$full} style={style}>
           {children.map((child, index) => {
             return React.cloneElement(child, this.__getDefine(index));
           })}
@@ -184,7 +185,7 @@ export default class PageContainer extends Component {
     };
   }
   __again() {
-    const $full = this.refs.$full;
+    const $full = this.$full.current;
     $full.style.transitionDuration = '0s';
     $full.style.transform = 'translateY(0%)';
     this.removeClass('#fullpage .full_pages', 'full_pages_active');
@@ -202,7 +203,7 @@ export default class PageContainer extends Component {
   }
   __nextPage() {
     const pages = this.state.children.length;
-    const $full = this.refs.$full;
+    const $full = this.$full.current;
     if (this.state.currentIndex < (pages - 1)) {
       if (this.props.onChange) {
         this.props.onChange(this.state.currentIndex, this.state.currentIndex + 1);
