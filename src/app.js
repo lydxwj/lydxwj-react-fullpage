@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './app.styl';
 export default class PageContainer extends Component {
   constructor(props) {
     super(props);

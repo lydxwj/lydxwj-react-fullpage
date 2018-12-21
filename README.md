@@ -10,6 +10,7 @@ npm install @lydxwj/react-fullpage --save
 
 ```
 import { PageContainer, Pages } from '@lydxwj/react-fullpage';
+import '@lydxwj/react-fullpage/lib/css/styles.css';
 
 <PageContainer onChange={(nowIdx, newIdx) => {
   console.log(nowIdx);
